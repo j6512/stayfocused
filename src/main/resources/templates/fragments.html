@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>stay focused</title>
+</head>
+<body>
+
+    <nav th:fragment="header" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse">
+            <a class="nav-item nav-link" href="/">home</a>
+            <a class="nav-item nav-link" href="/login">login</a>
+            <hr>
+        </div>
+
+        <span class="navbar-brand" th:text="${title}" style="display:block;float:left;">stay focusssssed</span>
+    </nav>
+
+</body>
+</html>
