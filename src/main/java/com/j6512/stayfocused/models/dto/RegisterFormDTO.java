@@ -12,4 +12,5 @@ public class RegisterFormDTO extends LoginFormDTO {
     public void setVerifyPassword(String verifyPassword) {
         this.verifyPassword = verifyPassword;
     }
+
 }
