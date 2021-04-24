@@ -1,26 +1,26 @@
 com/j6512/stayfocused/StayfocusedApplication.java
  com.j6512.stayfocused.StayfocusedApplication
-com/j6512/stayfocused/AuthenticationFilter.java
- com.j6512.stayfocused.AuthenticationFilter
+com/j6512/stayfocused/WebApplicationConfig.java
+ com.j6512.stayfocused.WebApplicationConfig
 com/j6512/stayfocused/models/AbstractEntity.java
  com.j6512.stayfocused.models.AbstractEntity
-com/j6512/stayfocused/models/data/UserRepository.java
- com.j6512.stayfocused.models.data.UserRepository
+com/j6512/stayfocused/models/dto/RegisterFormDTO.java
+ com.j6512.stayfocused.models.dto.RegisterFormDTO
 com/j6512/stayfocused/models/dto/LoginFormDTO.java
  com.j6512.stayfocused.models.dto.LoginFormDTO
 com/j6512/stayfocused/controllers/HomeController.java
  com.j6512.stayfocused.controllers.HomeController
+com/j6512/stayfocused/models/data/UserProfileRepository.java
+ com.j6512.stayfocused.models.data.UserProfileRepository
+com/j6512/stayfocused/controllers/UserProfileController.java
+ com.j6512.stayfocused.controllers.UserProfileController
+com/j6512/stayfocused/models/data/UserRepository.java
+ com.j6512.stayfocused.models.data.UserRepository
 com/j6512/stayfocused/controllers/AuthenticationController.java
  com.j6512.stayfocused.controllers.AuthenticationController
 com/j6512/stayfocused/models/User.java
  com.j6512.stayfocused.models.User
-com/j6512/stayfocused/models/dto/RegisterFormDTO.java
- com.j6512.stayfocused.models.dto.RegisterFormDTO
-com/j6512/stayfocused/WebApplicationConfig.java
- com.j6512.stayfocused.WebApplicationConfig
-com/j6512/stayfocused/models/data/UserProfileRepository.java
- com.j6512.stayfocused.models.data.UserProfileRepository
 com/j6512/stayfocused/models/UserProfile.java
  com.j6512.stayfocused.models.UserProfile
-com/j6512/stayfocused/controllers/UserProfileController.java
- com.j6512.stayfocused.controllers.UserProfileController
+com/j6512/stayfocused/AuthenticationFilter.java
+ com.j6512.stayfocused.AuthenticationFilter
