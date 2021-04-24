@@ -15,10 +15,4 @@ public class HomeController {
         return "index";
     }
 
-//    @GetMapping("todo")
-//    public String displayCalendar(Model model) {
-//        model.addAttribute("title", "THINGS TO DO");
-//
-//        return "todo";
-//    }
 }

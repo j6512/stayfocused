@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import java.util.Date;
 
 @Entity
-public class Profile {
+public class Profile extends AbstractEntity {
 
     private String firstName;
     private String lastName;
