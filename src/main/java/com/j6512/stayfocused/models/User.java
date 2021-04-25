@@ -2,14 +2,16 @@ package com.j6512.stayfocused.models;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class User extends AbstractEntity {
+public class User {
+
+    @Id
+    @GeneratedValue
+    private int id;
 
     @NotNull
     private String username;
@@ -17,8 +19,8 @@ public class User extends AbstractEntity {
     @NotNull
     private String passwordHash;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @Valid
+    @OneToOne
+    @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -44,5 +46,9 @@ public class User extends AbstractEntity {
 
     public void setUserProfile(UserProfile userProfile) {
         this.userProfile = userProfile;
+    }
+
+    public int getId() {
+        return id;
     }
 }

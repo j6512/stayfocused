@@ -4,5 +4,25 @@
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
 
+<div class="card">
+    <div class="card-body" style="height:200px;">
+        <div class="container">
+            <label>name:
+                <span th:text="${userProfile.firstName}"></span> <span th:text="${userProfile.lastName}"></span>
+            </label>
+        </div>
+        <div class="container">
+            <label>location:
+                <span th:text="${userProfile.location}"></span>
+            </label>
+        </div>
+        <div class="container">
+            <label>about me:
+                <span th:text="${userProfile.bio}"></span>
+            </label>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

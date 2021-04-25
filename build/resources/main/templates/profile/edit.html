@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="container body-content d-flex justify-content-center">
+    <form method="post">
+        <div class="form-group">
+            <label>first name
+                <input class="form-control" type="text" th:field="${userProfile.firstName}" th:value="${userProfile.firstName}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.firstName}"></p>
+        </div>
+        <div class="form-group">
+            <label>last name
+                <input class="form-control" type="text" th:field="${userProfile.lastName}" th:value="${userProfile.lastName}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.lastName}"></p>
+        </div>
+        <div class="form-group">
+            <label>location
+                <input class="form-control" type="text" th:field="${userProfile.location}" th:value="${userProfile.location}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.location}"></p>
+        </div>
+        <div class="form-group">
+            <label>about me
+                <input class="form-control" type="text" th:field="${userProfile.bio}" th:value="${userProfile.bio}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.bio}"></p>
+        </div>
+        <input type="submit" value="confirm" class="btn btn-success"/>
+    </form>
+</div>
+
+</body>
+</html>
