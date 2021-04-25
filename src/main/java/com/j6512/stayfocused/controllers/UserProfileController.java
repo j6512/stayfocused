@@ -2,6 +2,7 @@ package com.j6512.stayfocused.controllers;
 
 import com.j6512.stayfocused.models.User;
 import com.j6512.stayfocused.models.UserProfile;
+import com.j6512.stayfocused.models.data.TaskListRepository;
 import com.j6512.stayfocused.models.data.UserProfileRepository;
 import com.j6512.stayfocused.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -131,8 +132,7 @@ public class UserProfileController {
         model.addAttribute("user", user);
 
         userProfile = user.getUserProfile();
-        int userProfileId = userProfile.getId();
-        userProfileRepository.findById(userProfileId);
+        userProfileRepository.findById(userProfile.getId());
 
         userProfile.setFirstName(firstName);
         userProfile.setLastName(lastName);

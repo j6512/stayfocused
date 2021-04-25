@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+<nav th:replace="fragments :: navigation"></nav>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Task List ID</th>
+        <th>Task List Name</th>
+    </tr>
+    </thead>
+    <tr th:each="list : ${lists}">
+        <td th:text="${list.id}"></td>
+        <td th:text="${list.name}"></td>
+    </tr>
+</table>
+
+<a href="/taskList/create" class="btn btn-danger" role="button">Add new list</a>
+
+</body>
+</html>
