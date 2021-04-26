@@ -144,6 +144,5 @@ public class UserProfileController {
         userRepository.save(user);
 
         return "redirect:/profile/index";
-
     }
 }

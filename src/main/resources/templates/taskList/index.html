@@ -11,9 +11,9 @@
         <th>Task List Name</th>
     </tr>
     </thead>
-    <tr th:each="list : ${lists}">
-        <td th:text="${list.id}"></td>
-        <td th:text="${list.name}"></td>
+    <tr th:each="taskList : ${taskLists}">
+        <td th:text="${taskList.id}"></td>
+        <td th:text="${taskList.name}"></td>
     </tr>
 </table>
 
