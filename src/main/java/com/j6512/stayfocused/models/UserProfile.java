@@ -11,12 +11,12 @@ import java.util.Date;
 @Entity
 public class UserProfile extends AbstractEntity {
 
-    @NotBlank(message = "Please enter your first name.")
-    @Size(min = 3, max = 12, message = "Your name must be between 3 and 12 characters.")
+    @NotBlank
+    @Size(min = 3, max = 12, message = "Your last name must be between 3 and 12 characters.")
     private String firstName;
 
-    @NotBlank(message = "Please enter your last name.")
-    @Size(min = 3, max = 12, message = "Your name must be between 3 and 12 characters.")
+    @NotBlank
+    @Size(min = 3, max = 12, message = "Your last name must be between 3 and 12 characters.")
     private String lastName;
 
     @Size(max = 20, message = "Your location can not be longer than 20 characters.")

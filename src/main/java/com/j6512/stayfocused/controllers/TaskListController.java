@@ -74,8 +74,8 @@ public class TaskListController {
 
     @PostMapping("taskList/create")
     public String processTaskListCreateForm(@ModelAttribute @Valid TaskList newTaskList,
-                                            HttpServletRequest request,
-                                            Errors errors, Model model) {
+                                            Errors errors, Model model,
+                                            HttpServletRequest request) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "Please create a list");
 

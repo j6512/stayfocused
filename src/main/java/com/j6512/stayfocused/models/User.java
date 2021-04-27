@@ -20,7 +20,7 @@ public class User {
     @NotNull
     private String passwordHash;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_profile_id")
     private UserProfile userProfile;
 

@@ -1,34 +1,72 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
+<!--<head th:replace="fragments :: head"></head>-->
+<!--<body class="container-fluid">-->
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+
+<!--<form method="post">-->
+<!--    <div class="form-group">-->
+<!--        <label>first name-->
+<!--            <input type="text" th:field="${userProfile.firstName}" class="form-control"/>-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label>last name-->
+<!--            <input type="text" th:field="${userProfile.lastName}" class="form-control"/>-->
+<!--        </label>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label>location <small class="text-muted">(optional)</small>-->
+<!--            <input type="text" th:field="${userProfile.location}" class="form-control"/>-->
+<!--        </label>-->
+<!--    </div>-->
+<!--&lt;!&ndash;    <div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;        <label>birthday <small class="text-muted">(optional)</small>&ndash;&gt;-->
+<!--&lt;!&ndash;            <input type="date" th:field="${userProfile.birthday}" class="form-control"/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </label>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--    <div class="form-group">-->
+<!--        <input type="submit" value="Confirm" class="btn btn-success"/>-->
+<!--    </div>-->
+<!--</form>-->
+
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
 
-<form method="post">
-    <div class="form-group">
-        <label>first name
-            <input type="text" th:field="${userProfile.firstName}" class="form-control"/>
-        </label>
-    </div>
-    <div class="form-group">
-        <label>last name
-            <input type="text" th:field="${userProfile.lastName}" class="form-control"/>
-        </label>
-    </div>
-    <div class="form-group">
-        <label>location <small class="text-muted">(optional)</small>
-            <input type="text" th:field="${userProfile.location}" class="form-control"/>
-        </label>
-    </div>
-<!--    <div class="form-group">-->
-<!--        <label>birthday <small class="text-muted">(optional)</small>-->
-<!--            <input type="date" th:field="${userProfile.birthday}" class="form-control"/>-->
-<!--        </label>-->
-<!--    </div>-->
-    <div class="form-group">
-        <input type="submit" value="Confirm" class="btn btn-success"/>
-    </div>
-</form>
+<div class="container body-content d-flex justify-content-center">
+    <form method="post">
+        <div class="form-group">
+            <label>first name
+                <input class="form-control" type="text" th:field="${userProfile.firstName}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.firstName}"></p>
+        </div>
+        <div class="form-group">
+            <label>last name
+                <input class="form-control" type="text" th:field="${userProfile.lastName}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.lastName}"></p>
+        </div>
+        <div class="form-group">
+            <label>location <small class="text-muted">(optional)</small>
+                <input class="form-control" type="text" th:field="${userProfile.location}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.location}"></p>
+        </div>
+        <div class="form-group">
+            <label>about me <small class="text-muted">(optional)</small>
+                <input class="form-control" type="text" th:field="${userProfile.bio}"/>
+            </label>
+            <p class="error text-danger" th:errors="${userProfile.bio}"></p>
+        </div>
+        <input type="submit" value="confirm" class="btn btn-success"/>
+    </form>
+</div>
 
 </body>
 </html>

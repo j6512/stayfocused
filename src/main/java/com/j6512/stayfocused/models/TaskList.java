@@ -6,6 +6,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class TaskList extends AbstractEntity {
     private final List<Task> tasks = new ArrayList<>();
 
     @NotBlank
+    @Size(min = 1, max = 50, message = "Please enter a name for your list. The list must be between 1 and 50 characters.")
     private String name;
 
     public TaskList() {

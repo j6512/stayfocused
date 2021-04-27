@@ -76,26 +76,26 @@ public class UserProfileController {
         model.addAttribute("title", "create your profile");
         model.addAttribute(new UserProfile());
 
-        return "profile/edit";
+        return "profile/create";
     }
 
     @PostMapping("profile/create")
-    public String processCreateProfileForm(@ModelAttribute @Valid UserProfile newUserProfile,
-                                           HttpServletRequest request,
-                                           Errors errors, Model model) {
+    public String processCreateProfileForm(@ModelAttribute @Valid UserProfile userProfile,
+                                           Errors errors, Model model,
+                                           HttpServletRequest request) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "create your profilerror");
 
-            return "profile/edit";
+            return "profile/create";
         }
 
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
         model.addAttribute("user", user);
 
-        user.setUserProfile(newUserProfile);
+        user.setUserProfile(userProfile);
 
-        userProfileRepository.save(newUserProfile);
+        userProfileRepository.save(userProfile);
 
         return "profile/index";
     }
@@ -117,10 +117,10 @@ public class UserProfileController {
 
     @PostMapping("profile/edit")
     public String processEditProfileForm(@ModelAttribute @Valid UserProfile userProfile,
+                                         Errors errors, Model model,
                                          @RequestParam String firstName, @RequestParam String lastName,
                                          @RequestParam String location, @RequestParam String bio,
-                                         HttpServletRequest request,
-                                         Errors errors, Model model) {
+                                         HttpServletRequest request) {
         if (errors.hasErrors()) {
             model.addAttribute("title", "edit your profile");
 

@@ -19,13 +19,13 @@
             <p class="error text-danger" th:errors="${userProfile.lastName}"></p>
         </div>
         <div class="form-group">
-            <label>location
+            <label>location <small class="text-muted">(optional)</small>
                 <input class="form-control" type="text" th:field="${userProfile.location}" th:value="${userProfile.location}"/>
             </label>
             <p class="error text-danger" th:errors="${userProfile.location}"></p>
         </div>
         <div class="form-group">
-            <label>about me
+            <label>about me <small class="text-muted">(optional)</small>
                 <input class="form-control" type="text" th:field="${userProfile.bio}" th:value="${userProfile.bio}"/>
             </label>
             <p class="error text-danger" th:errors="${userProfile.bio}"></p>
