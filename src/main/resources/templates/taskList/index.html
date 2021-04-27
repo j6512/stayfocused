@@ -9,11 +9,13 @@
     <tr>
         <th>Task List ID</th>
         <th>Task List Name</th>
+        <th></th>
     </tr>
     </thead>
     <tr th:each="taskList : ${taskLists}">
         <td th:text="${taskList.id}"></td>
         <td th:text="${taskList.name}"></td>
+        <td><a class="btn btn-primary" th:href="@{'/taskList/edit/' + ${taskList.id}}">Edit</a></td>
     </tr>
 </table>
 
