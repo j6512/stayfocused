@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+<nav th:replace="fragments :: navigation"></nav>
+
+<h1 th:text="${taskList.name}"></h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Task ID</th>
+        <th>Task Name</th>
+    </tr>
+    </thead>
+</table>
+
+</body>
+</html>

@@ -56,6 +56,17 @@ public class TaskListController {
         return "taskList/index";
     }
 
+    @GetMapping("taskList/view/{taskListId}")
+    public String displaySelectedTaskList(@PathVariable int taskListId, Model model) {
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+
+        model.addAttribute("title", "Viewing Task List: " + taskList.getName());
+        model.addAttribute("taskList", taskList);
+        return "taskList/view";
+
+    }
+
     @GetMapping("taskList/create")
     public String displayTaskListCreateForm(Model model, HttpServletRequest request) {
         model.addAttribute(new TaskList());
@@ -120,5 +131,23 @@ public class TaskListController {
 
         return "redirect:/taskList/index";
 
+    }
+
+    @GetMapping("taskList/delete/{taskListId}")
+    public String displayTaskListDeleteForm(@PathVariable int taskListId, Model model) {
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+
+        model.addAttribute("taskList", taskList);
+        model.addAttribute("title", "Delete List");
+
+        return "taskList/delete";
+    }
+
+    @PostMapping("taskList/delete/{taskListId}")
+    public String processTaskListDeleteForm(@PathVariable int taskListId) {
+        taskListRepository.deleteById(taskListId);
+
+        return "redirect:/taskList/index";
     }
 }

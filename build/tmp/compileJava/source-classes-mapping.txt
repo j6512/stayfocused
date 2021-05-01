@@ -30,5 +30,9 @@ com/j6512/stayfocused/models/UserProfile.java
  com.j6512.stayfocused.models.UserProfile
 com/j6512/stayfocused/AuthenticationFilter.java
  com.j6512.stayfocused.AuthenticationFilter
+com/j6512/stayfocused/controllers/TaskController.java
+ com.j6512.stayfocused.controllers.TaskController
+com/j6512/stayfocused/models/data/TaskRepository.java
+ com.j6512.stayfocused.models.data.TaskRepository
 com/j6512/stayfocused/controllers/TaskListController.java
  com.j6512.stayfocused.controllers.TaskListController

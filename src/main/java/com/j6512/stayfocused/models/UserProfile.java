@@ -25,18 +25,15 @@ public class UserProfile extends AbstractEntity {
     @Size(max = 500, message = "Your bio can not be longer than 500 characters.")
     private String bio;
 
-    private Date birthday;
-
     @OneToOne(mappedBy = "userProfile")
     private User user;
 
-    public UserProfile(String firstName, String lastName, String location, String bio, Date birthday, User user) {
+    public UserProfile(String firstName, String lastName, String location, String bio, User user) {
         super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.location = location;
         this.bio = bio;
-        this.birthday = birthday;
         this.user = user;
     }
 
@@ -81,13 +78,5 @@ public class UserProfile extends AbstractEntity {
 
     public void setUser(User user) {
         this.user = user;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 }
