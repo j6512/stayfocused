@@ -2,13 +2,19 @@ package com.j6512.stayfocused.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Task extends AbstractEntity {
 
+    @NotBlank
+    @Size(min = 1, max = 25, message = "must be between 1 and 25 characters")
     private String title;
 
+    @NotBlank
+    @Size(min = 1, max = 500, message = "must be between 1 and 500 characters")
     private String description;
 
 //    private boolean isCompleted;

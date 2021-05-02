@@ -9,11 +9,13 @@
         <label>Title
             <input type="text" class="form-control" th:field="${task.title}"/>
         </label>
+        <span th:errors="${task.title}" class="error text-danger"></span>
     </div>
     <div class="form-group">
         <label>Description
             <input type="text" class="form-control" th:field="${task.description}"/>
         </label>
+        <span th:errors="${task.description}" class="error text-danger"></span>
     </div>
     <div class="form-group">
         <input type="submit" value="Add Task" class="btn btn-success"/>

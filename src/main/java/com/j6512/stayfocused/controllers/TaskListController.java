@@ -195,11 +195,15 @@ public class TaskListController {
     }
 
     @PostMapping("taskList/edit-task/{taskListId}/{taskId}")
-    public String processTaskListEditTaskForm(@PathVariable int taskListId,
+    public String processTaskListEditTaskForm(@ModelAttribute Task newTask,
+                                              @PathVariable int taskListId,
                                               @PathVariable int taskId,
-                                              @ModelAttribute Task newTask, Model model,
+                                              Model model,
                                               @RequestParam String title,
                                               @RequestParam String description) {
+
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         newTask = optionalTask.get();
 
@@ -208,8 +212,6 @@ public class TaskListController {
 
         taskRepository.save(newTask);
 
-        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
-        TaskList taskList = (TaskList) optionalTaskList.get();
         model.addAttribute("taskList", taskList);
         model.addAttribute("tasks", taskList.getTasks());
 
