@@ -126,7 +126,7 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        model.addAttribute("greeting", "Welcome, " + loginFormDTO.getUsername());
+        model.addAttribute("greeting", "You have successfully logged in, " + loginFormDTO.getUsername());
         return "index";
     }
 
