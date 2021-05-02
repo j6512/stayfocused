@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -177,4 +178,60 @@ public class TaskListController {
 
         return "taskList/view";
     }
+
+    @GetMapping("taskList/edit-task/{taskListId}/{taskId}")
+    public String displayTaskListEditTaskForm(@PathVariable int taskListId,
+                                              @PathVariable int taskId, Model model) {
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+        model.addAttribute("taskList", taskList);
+
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        Task task = optionalTask.get();
+
+        model.addAttribute("title", "Edit Task: " + task.getTitle());
+        model.addAttribute("task", task);
+        return "taskList/edit-task";
+    }
+
+    @PostMapping("taskList/edit-task/{taskListId}/{taskId}")
+    public String processTaskListEditTaskForm(@PathVariable int taskListId,
+                                              @PathVariable int taskId,
+                                              @ModelAttribute Task newTask, Model model,
+                                              @RequestParam String title,
+                                              @RequestParam String description) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        newTask = optionalTask.get();
+
+        newTask.setTitle(title);
+        newTask.setDescription(description);
+
+        taskRepository.save(newTask);
+
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+        model.addAttribute("taskList", taskList);
+        model.addAttribute("tasks", taskList.getTasks());
+
+        return "taskList/view";
+    }
+
+    @GetMapping("taskList/delete-task/{taskListId}/{taskId}")
+    public String displayTaskListDeleteTaskForm(@PathVariable int taskListId, @PathVariable int taskId,
+                                                Model model) {
+        Optional<Task> optionalTask = taskRepository.findById(taskId);
+        Task task = optionalTask.get();
+
+        model.addAttribute("title", "Edit Task: " + task.getTitle());
+        model.addAttribute("task", task);
+        return "taskList/delete-task";
+    }
+
+    @PostMapping("taskList/delete-task/{taskListId}/{taskId}")
+    public String processTaskListDeleteTaskForm(@PathVariable int taskListId, @PathVariable int taskId) {
+        taskRepository.deleteById(taskId);
+
+        return "redirect:/taskList/index";
+    }
+
 }

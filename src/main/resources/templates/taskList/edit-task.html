@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input type="text" th:field="${task.title}" class="form-control"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <label>Description
+            <input type="text" th:field="${task.description}" class="form-control"/>
+        </label>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Edit List" class="btn btn-success"/>
+    </div>
+</form>
+<a th:href="@{'/taskList/delete-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Delete</a>
+</body>
+</html>
