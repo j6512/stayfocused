@@ -1,8 +1,10 @@
 package com.j6512.stayfocused.controllers;
 
+import com.j6512.stayfocused.models.Task;
 import com.j6512.stayfocused.models.TaskList;
 import com.j6512.stayfocused.models.User;
 import com.j6512.stayfocused.models.data.TaskListRepository;
+import com.j6512.stayfocused.models.data.TaskRepository;
 import com.j6512.stayfocused.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +26,9 @@ public class TaskListController {
 
     @Autowired
     private TaskListRepository taskListRepository;
+
+    @Autowired
+    private TaskRepository taskRepository;
 
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute("user");
@@ -63,6 +68,7 @@ public class TaskListController {
 
         model.addAttribute("title", "Viewing Task List: " + taskList.getName());
         model.addAttribute("taskList", taskList);
+        model.addAttribute("tasks", taskList.getTasks());
         return "taskList/view";
 
     }
@@ -130,14 +136,12 @@ public class TaskListController {
         taskListRepository.save(taskList);
 
         return "redirect:/taskList/index";
-
     }
 
     @GetMapping("taskList/delete/{taskListId}")
     public String displayTaskListDeleteForm(@PathVariable int taskListId, Model model) {
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();
-
         model.addAttribute("taskList", taskList);
         model.addAttribute("title", "Delete List");
 
@@ -149,5 +153,28 @@ public class TaskListController {
         taskListRepository.deleteById(taskListId);
 
         return "redirect:/taskList/index";
+    }
+
+    @GetMapping("taskList/add-task/{taskListId}")
+    public String displayTaskListAddTaskForm(@PathVariable int taskListId, Model model) {
+        model.addAttribute("title", "Add Tasks");
+        model.addAttribute(new Task());
+
+        return "taskList/add-task";
+    }
+
+    @PostMapping("taskList/add-task/{taskListId}")
+    public String processTaskListAddTaskForm(@ModelAttribute Task newTask, @PathVariable int taskListId, Model model) {
+
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+        model.addAttribute("taskList", taskList);
+
+        newTask.setTaskList(taskList);
+        taskRepository.save(newTask);
+        model.addAttribute("tasks", taskList.getTasks());
+        model.addAttribute("title", "Add Tasks");
+
+        return "taskList/view";
     }
 }
