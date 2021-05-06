@@ -235,5 +235,4 @@ public class TaskListController {
 
         return "redirect:/taskList/index";
     }
-
 }
