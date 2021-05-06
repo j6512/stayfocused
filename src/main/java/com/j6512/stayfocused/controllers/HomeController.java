@@ -1,6 +1,7 @@
 package com.j6512.stayfocused.controllers;
 
 import com.j6512.stayfocused.models.User;
+import com.j6512.stayfocused.models.UserProfile;
 import com.j6512.stayfocused.models.data.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +38,13 @@ public class HomeController {
     public String index(Model model, HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
+
+        if (user.getUserProfile() == null) {
+            model.addAttribute("title", "create your profile");
+            model.addAttribute(new UserProfile());
+
+            return "redirect:/profile/create";
+        }
 
         model.addAttribute("title", "stay focused");
         model.addAttribute("greeting", "Hello, " + user.getUserProfile().getFirstName());
