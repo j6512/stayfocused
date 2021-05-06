@@ -40,7 +40,6 @@ function displayEndTime(timestamp) {
     const minutes = end.getMinutes();
 
     endTime.textContent = `Be Back At ${hours > 12 ? hours - 12 : hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
 }
 
 function startTimer() {
@@ -55,7 +54,6 @@ document.customInput.addEventListener("submit", function(e) {
     e.preventDefault();
 
     const min = this.minutes.value;
-
 
     timer(min * 60);
     this.reset();
