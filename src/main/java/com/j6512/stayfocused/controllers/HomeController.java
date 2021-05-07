@@ -7,10 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.time.LocalDate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Controller
@@ -46,9 +49,14 @@ public class HomeController {
             return "redirect:/profile/create";
         }
 
+        LocalDateTime dateObj = LocalDateTime.now();
+        DateTimeFormatter formatDateObj = DateTimeFormatter.ofPattern("E, MMM dd yyyy hh:mm a");
+        String formattedDate = dateObj.format(formatDateObj);
+
         model.addAttribute("title", "stay focused");
         model.addAttribute("greeting", "Hello, " + user.getUserProfile().getFirstName());
-
+        model.addAttribute("date", formattedDate);
+//        model.addAttribute("time", LocalTime.now());
         return "index";
     }
 }
