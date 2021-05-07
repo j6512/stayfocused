@@ -6,59 +6,50 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <div class="container">
-    <form method="post">
-        <h2>Search</h2>
-
-        <div class="form-group">
-            <span>lists
-                <input type="radio" name="searchType" value="list"/>
-            </span>
-            <span>tasks
-                <input type="radio" name="searchType" value="task"/>
-            </span>
-        </div>
-        <div class="form-group">
-            <input type="text" name="searchTerm" class="form-control"/>
-        </div>
-        <input type="submit" value="Enter"/>
-    </form>
-</div>
-
-
-<div class="container">
     <div class="row">
-        <div class="col-md">
+        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding-bottom:140px;">
+            <strong class="d-inline-block mb-2 text-primary">Results</strong>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Task List ID</th>
                     <th>Task List Name</th>
-                    <th></th>
+                    <th>Task Name</th>
+                    <th>Description</th>
                 </tr>
                 </thead>
                 <tr th:each="taskList : ${taskLists}">
                     <td th:text="${taskList.id}"></td>
                     <td><a th:text="${taskList.name}" th:href="'/taskList/view/' + ${taskList.id}"></a></td>
-                    <td><a class="btn btn-primary" th:href="@{'/taskList/edit/' + ${taskList.id}}">Edit</a></td>
                 </tr>
-            </table>
-
-            <a role="button" class="btn btn-success" href="/taskList/index">view all task lists</a>
-        </div>
-        <div class="col-md">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>Task Name</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
                 <tr th:each="task : ${tasks}">
+                    <td></td>
+                    <td></td>
                     <td th:text="${task.title}"></td>
                     <td th:text="${task.description}"></td>
                 </tr>
             </table>
         </div>
+        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;padding:20px;">
+            <strong class="d-inline-block mb-2 text-primary">Search</strong>
+            <form method="post">
+                <h2>Search</h2>
+
+                <div class="form-group">
+            <span>lists
+                <input type="radio" name="searchType" value="list"/>
+            </span>
+                    <span>tasks
+                <input type="radio" name="searchType" value="task"/>
+            </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="searchTerm" class="form-control"/>
+                </div>
+                <input type="submit" value="Enter"/>
+            </form>
+        </div>
+
     </div>
 </div>
 </body>

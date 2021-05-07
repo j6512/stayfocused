@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary">List</strong>
             <h1 th:text="${taskList.name}"></h1>
             <table class="table table-striped">
@@ -27,10 +27,14 @@
                 </tr>
             </table>
         </div>
-        <div class="col-sm-4">
-            <strong class="d-inline-block mb-2 text-primary">Timer</strong>
+        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;top:40%;padding:20px;">
+            <strong class="d-inline-block mb-2 text-primary" style="text-align:center;">Timer</strong>
             <div class="timer">
-                <div style="position:absolute;bottom:10px;">
+                <div class="display">
+                    <h1 class="display-time-left" style="text-align:center;">00:00</h1>
+                    <p class="display-end-time"></p>
+                </div>
+                <div style="bottom:10px;">
                     <button data-time="30" class="btn btn-outline-success" style="width:125px;margin:2px;">30 seconds</button>
                     <button data-time="300" class="btn btn-outline-success" style="width:125px;margin:2px;">5 minutes</button>
                     <button data-time="900" class="btn btn-outline-success" style="width:125px;margin:2px;">15 minutes</button>
@@ -39,10 +43,6 @@
                     <form name="customInput" style="margin:10px;text-align:center;">
                         <input type="text" name="minutes" placeholder="Enter minutes">
                     </form>
-                </div>
-                <div class="display">
-                    <h1 class="display-time-left" style="text-align:center;">00:00</h1>
-                    <p class="display-end-time"></p>
                 </div>
             </div>
         </div>

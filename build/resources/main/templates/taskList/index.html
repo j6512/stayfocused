@@ -4,21 +4,6 @@
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
 
-<!--<table class="table table-striped">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>Task List ID</th>-->
-<!--        <th>Task List Name</th>-->
-<!--        <th></th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tr th:each="taskList : ${taskLists}">-->
-<!--        <td th:text="${taskList.id}"></td>-->
-<!--        <td><a th:text="${taskList.name}" th:href="'/taskList/view/' + ${taskList.id}"></a></td>-->
-<!--        <td><a class="btn btn-primary" th:href="@{'/taskList/edit/' + ${taskList.id}}">Edit</a></td>-->
-<!--    </tr>-->
-<!--</table>-->
-
 <div class="row">
     <th:block th:each="taskList : ${taskLists}">
         <div class="card mb-4 box-shadow" style="width:300px;height:200px;margin:25px;background:lightyellow;opacity:0.5;">
@@ -34,6 +19,5 @@
 </div>
 
 <a href="/taskList/create" class="btn btn-danger" role="button">Add new list</a>
-
 </body>
 </html>

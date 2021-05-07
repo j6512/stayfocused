@@ -1,16 +1,4 @@
 let countdown;
-<<<<<<< HEAD
-const timerDisplay = document.querySelector('.display__time-left');
-
-function timer(seconds) {
-    const now = Date.now();
-    const then = now + seconds * 1000;
-
-    countdown = setInterval(() => {
-        const secondsLeft = Math.round(then - Date.now()) / 1000;
-
-        if (secondsLeft < 0) {
-=======
 const timerDisplay = document.querySelector('.display-time-left');
 const endTime = document.querySelector('.display-end-time');
 const buttons = document.querySelectorAll('[data-time]');
@@ -27,24 +15,11 @@ function timer(seconds) {
         const secondsRemaining = Math.round((then - Date.now()) / 1000);
 
         if (secondsRemaining < 0) {
->>>>>>> timer
             clearInterval(countdown);
 
             return;
         }
 
-<<<<<<< HEAD
-        displayTimeLeft(secondsLeft);
-    }, 1000);
-}
-
-function displayTimeLeft(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainderSeconds = seconds % 60;
-    const display = `${minutes} : ${remainderSeconds < 10 ? '0' : ''}${remainderSeconds}`;
-    timerDisplay.textContent = display;
-}
-=======
         displayTimeRemaining(secondsRemaining);
     }, 1000);
 }
@@ -65,7 +40,6 @@ function displayEndTime(timestamp) {
     const minutes = end.getMinutes();
 
     endTime.textContent = `Be Back At ${hours > 12 ? hours - 12 : hours}:${minutes < 10 ? '0' : ''}${minutes}`;
-
 }
 
 function startTimer() {
@@ -81,8 +55,6 @@ document.customInput.addEventListener("submit", function(e) {
 
     const min = this.minutes.value;
 
-
     timer(min * 60);
     this.reset();
 })
->>>>>>> timer

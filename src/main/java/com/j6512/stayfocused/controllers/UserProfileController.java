@@ -49,6 +49,7 @@ public class UserProfileController {
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
         model.addAttribute("user", user);
+        model.addAttribute("title", "Profile User: " + (user.getUserProfile().getFirstName() + " " + user.getUserProfile().getLastName()));
 
         if (user.getUserProfile() != null) {
             UserProfile userProfile = user.getUserProfile();
