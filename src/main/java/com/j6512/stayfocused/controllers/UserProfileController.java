@@ -49,12 +49,13 @@ public class UserProfileController {
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
         model.addAttribute("user", user);
-        model.addAttribute("title", "Profile User: " + (user.getUserProfile().getFirstName() + " " + user.getUserProfile().getLastName()));
 
         if (user.getUserProfile() != null) {
             UserProfile userProfile = user.getUserProfile();
 
             model.addAttribute("userProfile", userProfile);
+            model.addAttribute("title", "Profile User: " + (user.getUserProfile().getFirstName() + " " + user.getUserProfile().getLastName()));
+
 
             return "profile/index";
         } else {
@@ -108,7 +109,16 @@ public class UserProfileController {
 
         HttpSession session = request.getSession(false);
         User user = getUserFromSession(session);
+
+        if (user.getUserProfile() == null) {
+            model.addAttribute("title", "create your profile");
+            model.addAttribute(new UserProfile());
+
+            return "redirect:/profile/create";
+        }
+
         userProfile = user.getUserProfile();
+
 
         model.addAttribute("userProfile", userProfile);
         model.addAttribute("user", user);
