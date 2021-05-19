@@ -2,6 +2,7 @@ package com.j6512.stayfocused.controllers;
 
 import com.j6512.stayfocused.models.Task;
 import com.j6512.stayfocused.models.TaskList;
+import com.j6512.stayfocused.models.TaskStatus;
 import com.j6512.stayfocused.models.User;
 import com.j6512.stayfocused.models.data.TaskListRepository;
 import com.j6512.stayfocused.models.data.TaskRepository;
@@ -70,9 +71,10 @@ public class TaskListController {
         model.addAttribute("title", "Viewing Task List: " + taskList.getName());
         model.addAttribute("taskList", taskList);
         model.addAttribute("tasks", taskList.getTasks());
-        return "taskList/view";
 
+        return "taskList/view";
     }
+
 
     @GetMapping("taskList/create")
     public String displayTaskListCreateForm(Model model, HttpServletRequest request) {
@@ -132,9 +134,7 @@ public class TaskListController {
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         taskList = (TaskList) optionalTaskList.get();
-
         taskList.setName(name);
-
         taskListRepository.save(taskList);
 
         return "redirect:/taskList/index";
@@ -160,23 +160,26 @@ public class TaskListController {
     @GetMapping("taskList/add-task/{taskListId}")
     public String displayTaskListAddTaskForm(@PathVariable int taskListId, Model model) {
         model.addAttribute("title", "Add Tasks");
+        model.addAttribute("statuses", TaskStatus.values());
         model.addAttribute(new Task());
 
         return "taskList/add-task";
     }
 
     @PostMapping("taskList/add-task/{taskListId}")
-    public String processTaskListAddTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, @PathVariable int taskListId, Model model) {
+    public String processTaskListAddTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, @PathVariable int taskListId, Model model,
+                                             @RequestParam TaskStatus status) {
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();
+
 
         if (errors.hasErrors()) {
             return "taskList/add-task";
         }
 
         model.addAttribute("taskList", taskList);
-
+        newTask.setStatus(status);
         newTask.setTaskList(taskList);
         taskRepository.save(newTask);
         model.addAttribute("tasks", taskList.getTasks());
@@ -195,6 +198,8 @@ public class TaskListController {
         Optional<Task> optionalTask = taskRepository.findById(taskId);
         Task task = optionalTask.get();
 
+        model.addAttribute("statuses", TaskStatus.values());
+
         model.addAttribute("title", "Edit Task: " + task.getTitle());
         model.addAttribute("task", task);
         return "taskList/edit-task";
@@ -203,7 +208,7 @@ public class TaskListController {
     @PostMapping("taskList/edit-task/{taskListId}/{taskId}")
     public String processTaskListEditTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, Model model,
                                               @PathVariable int taskListId, @PathVariable int taskId,
-                                              @RequestParam String title, @RequestParam String description) {
+                                              @RequestParam String title, @RequestParam String description, @RequestParam TaskStatus status) {
 
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
@@ -218,7 +223,7 @@ public class TaskListController {
         newTask = optionalTask.get();
         newTask.setTitle(title);
         newTask.setDescription(description);
-
+        newTask.setStatus(status);
         taskRepository.save(newTask);
 
         model.addAttribute("taskList", taskList);

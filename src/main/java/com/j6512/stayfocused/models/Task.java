@@ -19,6 +19,8 @@ public class Task extends AbstractEntity {
 
     private boolean isCompleted;
 
+    private TaskStatus status;
+
     @ManyToOne
     private TaskList taskList;
 
@@ -62,5 +64,13 @@ public class Task extends AbstractEntity {
 
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
     }
 }
