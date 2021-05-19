@@ -25,7 +25,7 @@ public class LoginFormDTO {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username.replaceAll("\\s", "");
     }
 
     public void setPassword(String password) {
