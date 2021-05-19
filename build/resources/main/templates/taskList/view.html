@@ -8,7 +8,7 @@
 <div class="container">
 
     <div class="row">
-        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding:20px;">
+        <div class="col-lg-8 border border-secondary rounded" style="left:-10%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary">List</strong>
             <h1 th:text="${taskList.name}"></h1>
             <a th:href="@{'/taskList/add-task/' + ${taskList.id}}" class="btn btn-danger" role="button" style="position:absolute;top:0;right:0;margin:5px;">Add Tasks</a>
