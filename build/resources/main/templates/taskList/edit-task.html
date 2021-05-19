@@ -12,9 +12,10 @@
     </div>
     <div class="form-group">
         <label>Description
-            <input type="text" th:field="${task.description}" class="form-control"/>
-        </label>
-        <span th:errors="${task.description}" class="error text-danger"></span>
+            <!--            <input type="text" class="form-control" th:field="${task.description}" style="width:200px;height:100px;"/>-->
+        </label><br>
+        <textarea name="description" th:field="${task.description}" rows="5" cols="40" class="rounded"></textarea>
+        <p class="error text-danger" th:errors="${task.description}"></p>
     </div>
     <div class="form-group">
         <input type="submit" value="Edit List" class="btn btn-success"/>

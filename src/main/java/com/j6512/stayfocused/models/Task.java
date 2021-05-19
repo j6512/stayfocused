@@ -20,13 +20,12 @@ public class Task extends AbstractEntity {
     private boolean isCompleted;
 
     @ManyToOne
-    @NotNull(message = "which list would you like to add it to?")
     private TaskList taskList;
 
     public Task() {
     }
 
-    public Task(String title, String description,TaskList taskList) {
+    public Task(String title, String description, TaskList taskList) {
         this.title = title;
         this.description = description;
         this.isCompleted = false;

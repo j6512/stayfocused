@@ -107,6 +107,7 @@ public class TaskListController {
 
         taskListRepository.save(newTaskList);
 
+
         return "redirect:/taskList/index";
     }
 
@@ -165,10 +166,15 @@ public class TaskListController {
     }
 
     @PostMapping("taskList/add-task/{taskListId}")
-    public String processTaskListAddTaskForm(@ModelAttribute Task newTask, @PathVariable int taskListId, Model model) {
+    public String processTaskListAddTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, @PathVariable int taskListId, Model model) {
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();
+
+        if (errors.hasErrors()) {
+            return "taskList/add-task";
+        }
+
         model.addAttribute("taskList", taskList);
 
         newTask.setTaskList(taskList);
@@ -195,18 +201,21 @@ public class TaskListController {
     }
 
     @PostMapping("taskList/edit-task/{taskListId}/{taskId}")
-    public String processTaskListEditTaskForm(@ModelAttribute Task newTask,
-                                              @PathVariable int taskListId,
-                                              @PathVariable int taskId,
-                                              Model model,
-                                              @RequestParam String title,
-                                              @RequestParam String description) {
+    public String processTaskListEditTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, Model model,
+                                              @PathVariable int taskListId, @PathVariable int taskId,
+                                              @RequestParam String title, @RequestParam String description) {
+
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();
         Optional<Task> optionalTask = taskRepository.findById(taskId);
-        newTask = optionalTask.get();
 
+        if (errors.hasErrors()) {
+            model.addAttribute("taskList", taskList);
+            return "taskList/edit-task";
+        }
+
+        newTask = optionalTask.get();
         newTask.setTitle(title);
         newTask.setDescription(description);
 
