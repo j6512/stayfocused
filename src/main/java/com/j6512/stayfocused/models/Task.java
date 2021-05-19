@@ -17,7 +17,7 @@ public class Task extends AbstractEntity {
     @Size(min = 1, max = 500, message = "must be between 1 and 500 characters")
     private String description;
 
-//    private boolean isCompleted;
+    private boolean isCompleted;
 
     @ManyToOne
     @NotNull(message = "which list would you like to add it to?")
@@ -29,7 +29,7 @@ public class Task extends AbstractEntity {
     public Task(String title, String description,TaskList taskList) {
         this.title = title;
         this.description = description;
-//        this.isCompleted = isCompleted;
+        this.isCompleted = false;
         this.taskList = taskList;
     }
 
@@ -49,13 +49,13 @@ public class Task extends AbstractEntity {
         this.description = description;
     }
 
-//    public boolean isCompleted() {
-//        return isCompleted;
-//    }
-//
-//    public void setCompleted(boolean completed) {
-//        isCompleted = completed;
-//    }
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
+    }
 
     public TaskList getTaskList() {
         return taskList;
