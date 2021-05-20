@@ -24,6 +24,7 @@ public class Task extends AbstractEntity {
     @ManyToOne
     private TaskList taskList;
 
+
     public Task() {
     }
 
@@ -73,4 +74,12 @@ public class Task extends AbstractEntity {
     public void setStatus(TaskStatus status) {
         this.status = status;
     }
+//
+//    public int getTaskListId() {
+//        return taskListId;
+//    }
+//
+//    public void setTaskListId(int taskListId) {
+//        this.taskListId = taskListId;
+//    }
 }

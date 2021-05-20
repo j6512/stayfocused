@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.swing.text.html.Option;
 import javax.validation.Valid;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -152,8 +154,16 @@ public class TaskListController {
 
     @PostMapping("taskList/delete/{taskListId}")
     public String processTaskListDeleteForm(@PathVariable int taskListId) {
-        taskListRepository.deleteById(taskListId);
 
+        List<Task> tasks = (List<Task>) taskRepository.getAllTasksByTaskListId(taskListId);
+        Iterator<Task> holder = tasks.iterator();
+
+        while(holder.hasNext()) {
+            int id = holder.next().getId();
+            taskRepository.deleteById(id);
+        }
+
+        taskListRepository.deleteById(taskListId);
         return "redirect:/taskList/index";
     }
 
@@ -181,6 +191,7 @@ public class TaskListController {
         model.addAttribute("taskList", taskList);
         newTask.setStatus(status);
         newTask.setTaskList(taskList);
+//        newTask.setTaskListId(taskListId);
         taskRepository.save(newTask);
         model.addAttribute("tasks", taskList.getTasks());
         model.addAttribute("title", "Add Tasks");
@@ -244,9 +255,15 @@ public class TaskListController {
     }
 
     @PostMapping("taskList/delete-task/{taskListId}/{taskId}")
-    public String processTaskListDeleteTaskForm(@PathVariable int taskListId, @PathVariable int taskId) {
+    public String processTaskListDeleteTaskForm(@PathVariable int taskListId, @PathVariable int taskId, Model model) {
         taskRepository.deleteById(taskId);
 
-        return "redirect:/taskList/index";
+        Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
+        TaskList taskList = (TaskList) optionalTaskList.get();
+
+        model.addAttribute("taskList", taskList);
+        model.addAttribute("tasks", taskList.getTasks());
+
+        return "taskList/view";
     }
 }

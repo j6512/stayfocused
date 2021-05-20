@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TaskRepository extends CrudRepository<Task, Integer> {
+
+    Iterable<Task> getAllTasksByTaskListId(int task_list_id);
 }
