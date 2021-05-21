@@ -14,5 +14,4 @@ public enum TaskStatus {
     public String getStatus() {
         return name;
     }
-
 }
