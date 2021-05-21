@@ -3,16 +3,12 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-
-
 <div class="container">
-
     <div class="row">
         <div class="col-lg-8 border border-secondary rounded" style="left:-10%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary">List</strong>
             <h1 th:text="${taskList.name}"></h1>
             <a th:href="@{'/taskList/add-task/' + ${taskList.id}}" class="btn btn-danger" role="button" style="position:absolute;top:0;right:0;margin:5px;">Add Tasks</a>
-
             <table class="table" style="table-layout:fixed;width:100%;border-collapse:collapse;">
                 <thead>
                 <tr>
@@ -35,16 +31,15 @@
         <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;top:40%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary" style="text-align:center;">Timer</strong>
             <div class="timer">
-                <div class="display">
-                    <h1 class="display-time-left" style="text-align:center;">00:00</h1>
-                    <p class="display-end-time"></p>
+                <div class="display" style="text-align:center;">
+                    <h1 class="display-time-left">00:00</h1>
+                    <p class="display-end-time text-warning"></p>
                 </div>
                 <div style="bottom:10px;">
                     <button data-time="30" class="btn btn-outline-success" style="width:125px;margin:2px;">30 seconds</button>
                     <button data-time="300" class="btn btn-outline-success" style="width:125px;margin:2px;">5 minutes</button>
                     <button data-time="900" class="btn btn-outline-success" style="width:125px;margin:2px;">15 minutes</button>
                     <button data-time="1800" class="btn btn-outline-success" style="width:125px;margin:2px;">30 minutes</button>
-
                     <form name="customInput" style="margin:10px;text-align:center;">
                         <input type="text" name="minutes" placeholder="Enter minutes">
                     </form>
@@ -53,7 +48,6 @@
         </div>
     </div>
 </div>
-<!--<a th:href="@{'/taskList/add-task/' + ${taskList.id}}" class="btn btn-danger" role="button" style="position:absolute;top:0;right:0;">Add Tasks</a>-->
 <script th:src="@{/script.js}"></script>
 </body>
 </html>

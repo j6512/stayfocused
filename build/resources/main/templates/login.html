@@ -2,9 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-
 <nav th:replace="fragments :: navigation"></nav>
-
 <div class="container body-content d-flex justify-content-center" style="margin-top:10%;">
     <form method="post">
         <div class="form-group">
@@ -19,21 +17,13 @@
             </label>
             <p class="error text-danger" th:errors="${loginFormDTO.password}"></p>
         </div>
-
         <input type="submit" class="btn btn-primary" value="Log In"/>
     </form>
-
 </div>
-
 <span th:text="${logout}"></span>
-
 <div class="container" style="margin-top:75px;">
     <p class="d-flex justify-content-center">Don't have an account?</p>
     <p class="d-flex justify-content-center"><a href="/register">Register for one here!</a></p>
 </div>
-
-
-
-
 </body>
 </html>

@@ -2,9 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
-
 <nav th:replace="fragments :: navigation"></nav>
-
 <div class="container">
     <div class="row">
         <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding-bottom:140px;">
@@ -26,7 +24,6 @@
                     <td></td>
                     <td></td>
                     <td><a th:text="${task.title}" th:href="'/taskList/view/' + ${task.getTaskList.id}"></a></td>
-<!--                    <td th:text="${task.title}"></td>-->
                     <td th:text="${task.description}"></td>
                 </tr>
             </table>
@@ -50,7 +47,6 @@
                 <input type="submit" value="Enter"/>
             </form>
         </div>
-
     </div>
 </div>
 </body>

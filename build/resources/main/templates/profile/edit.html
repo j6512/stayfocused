@@ -3,7 +3,6 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-
 <div class="container body-content d-flex justify-content-center">
     <form method="post">
         <div class="form-group">
@@ -26,7 +25,6 @@
         </div>
         <div class="form-group">
             <label>about me <small class="text-muted">(optional)</small>
-                <!--                <input class="form-control" type="text" th:field="${userProfile.bio}"/>-->
             </label><br>
             <textarea th:field="${userProfile.bio}" rows="5" cols="40"></textarea>
             <p class="error text-danger" th:errors="${userProfile.bio}"></p>
@@ -34,6 +32,5 @@
         <input type="submit" value="confirm" class="btn btn-success"/>
     </form>
 </div>
-
 </body>
 </html>
