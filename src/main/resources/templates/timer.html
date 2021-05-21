@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="bg-dark">
+<nav th:replace="fragments :: navigation"></nav>
+
+<div class="" >
+    <div class="timer">
+
+        <div class="display" style="display:flex;justify-content:center;align-items:center;width:100%;height:50vh;">
+            <h1 class="display-time-left" style="font-size:300px;">00:00</h1>
+        </div>
+        <p class="display-end-time text-warning" style="text-align:center;"></p>
+        <div style="display:flex;justify-content:center;align-items:center;">
+            <button data-time="30" class="btn btn-outline-success" style="width:125px;margin:2px;">30 seconds</button>
+            <button data-time="300" class="btn btn-outline-success" style="width:125px;margin:2px;">5 minutes</button>
+            <button data-time="900" class="btn btn-outline-success" style="width:125px;margin:2px;">15 minutes</button>
+            <button data-time="1800" class="btn btn-outline-success" style="width:125px;margin:2px;">30 minutes</button>
+        </div>
+        <form name="customInput" style="margin:10px;text-align:center;">
+            <input type="text" name="minutes" placeholder="Enter minutes">
+        </form>
+    </div>
+</div>
+
+<script th:src="@{/script.js}"></script>
+</body>
+</html>

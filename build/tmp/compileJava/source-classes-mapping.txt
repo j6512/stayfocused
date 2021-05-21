@@ -16,8 +16,8 @@ com/j6512/stayfocused/WebApplicationConfig.java
  com.j6512.stayfocused.WebApplicationConfig
 com/j6512/stayfocused/models/User.java
  com.j6512.stayfocused.models.User
-com/j6512/stayfocused/controllers/HomeController.java
- com.j6512.stayfocused.controllers.HomeController
+com/j6512/stayfocused/controllers/UserProfileController.java
+ com.j6512.stayfocused.controllers.UserProfileController
 com/j6512/stayfocused/models/TaskStatus.java
  com.j6512.stayfocused.models.TaskStatus
 com/j6512/stayfocused/models/Task.java
@@ -40,5 +40,5 @@ com/j6512/stayfocused/controllers/TaskListController.java
  com.j6512.stayfocused.controllers.TaskListController
 com/j6512/stayfocused/AuthenticationFilter.java
  com.j6512.stayfocused.AuthenticationFilter
-com/j6512/stayfocused/controllers/UserProfileController.java
- com.j6512.stayfocused.controllers.UserProfileController
+com/j6512/stayfocused/controllers/HomeController.java
+ com.j6512.stayfocused.controllers.HomeController

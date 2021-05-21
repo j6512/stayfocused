@@ -56,7 +56,13 @@ public class HomeController {
         model.addAttribute("title", "stay focused");
         model.addAttribute("greeting", "Hello, " + user.getUserProfile().getFirstName());
         model.addAttribute("date", formattedDate);
-//        model.addAttribute("time", LocalTime.now());
         return "index";
+    }
+
+    @GetMapping("timer")
+    public String timer(Model model) {
+        model.addAttribute("title", "timer");
+
+        return "timer";
     }
 }
