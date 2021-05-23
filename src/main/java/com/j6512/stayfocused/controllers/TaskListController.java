@@ -17,10 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.swing.text.html.Option;
 import javax.validation.Valid;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 public class TaskListController {
@@ -73,6 +70,7 @@ public class TaskListController {
         model.addAttribute("title", "Viewing Task List: " + taskList.getName());
         model.addAttribute("taskList", taskList);
         model.addAttribute("tasks", taskList.getTasks());
+        model.addAttribute("date", taskList.getFormattedDate());
 
         return "taskList/view";
     }
@@ -108,6 +106,7 @@ public class TaskListController {
 
 
         newTaskList.setUser(user);
+        newTaskList.setDateCreated(new Date());
 
         taskListRepository.save(newTaskList);
 
@@ -191,7 +190,6 @@ public class TaskListController {
         model.addAttribute("taskList", taskList);
         newTask.setStatus(status);
         newTask.setTaskList(taskList);
-//        newTask.setTaskListId(taskListId);
         taskRepository.save(newTask);
         model.addAttribute("tasks", taskList.getTasks());
         model.addAttribute("title", "Add Tasks");

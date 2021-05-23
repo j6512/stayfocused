@@ -23,7 +23,6 @@ public class Task extends AbstractEntity {
     @ManyToOne
     private TaskList taskList;
 
-
     public Task() {
     }
 

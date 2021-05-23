@@ -7,6 +7,8 @@
     <div class="row">
         <div class="col-lg-8 border border-secondary rounded" style="left:-10%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary">List</strong>
+            <br>
+            <small class="text-muted" th:text="'Date Created: ' + ${taskList.formattedDate}"></small>
             <h1 th:text="${taskList.name}"></h1>
             <a th:href="@{'/taskList/add-task/' + ${taskList.id}}" class="btn btn-danger" role="button" style="position:absolute;top:0;right:0;margin:5px;">Add Tasks</a>
             <table class="table" style="table-layout:fixed;width:100%;border-collapse:collapse;">
@@ -20,10 +22,10 @@
                 </tr>
                 </thead>
                 <tr th:each="task : ${tasks}">
-                        <td th:text="${task.id}"></td>
-                        <td th:text="${task.title}"></td>
-                        <td th:text="${task.description}"></td>
-                        <td th:text="${task.getStatus.getStatus}"></td>
+                    <td th:text="${task.id}"></td>
+                    <td th:text="${task.title}"></td>
+                    <td th:text="${task.description}"></td>
+                    <td th:text="${task.getStatus.getStatus}"></td>
                     <td><a th:href="@{'/taskList/edit-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Edit</a></td>
                 </tr>
             </table>
