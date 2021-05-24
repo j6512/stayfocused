@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container-fluid">
+<nav th:replace="fragments :: navigation"></nav>
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input type="text" class="form-control" th:field="${notes.name}"/>
+        </label>
+        <p class="error text-danger" th:errors="${notes.name}"></p>
+    </div>
+    <div class="form-group">
+        <label>Description
+        </label><br>
+        <textarea name="description" th:field="${notes.description}" rows="5" cols="40" class="rounded"></textarea>
+        <p class="error text-danger" th:errors="${notes.description}"></p>
+    </div>
+    <div class="form-group">
+    <input type="submit" value="Add Note" class="btn btn-success"/>
+    </div>
+</form>
+
+</body>
+</html>

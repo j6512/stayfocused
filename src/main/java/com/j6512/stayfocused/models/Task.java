@@ -2,8 +2,11 @@ package com.j6512.stayfocused.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Task extends AbstractEntity {
@@ -17,6 +20,9 @@ public class Task extends AbstractEntity {
     private String description;
 
     private boolean isCompleted;
+
+    @OneToMany(mappedBy = "notesList")
+    private final List<Notes> notesList = new ArrayList<>();
 
     private TaskStatus status;
 
@@ -71,5 +77,10 @@ public class Task extends AbstractEntity {
 
     public void setStatus(TaskStatus status) {
         this.status = status;
+    }
+
+
+    public List<Notes> getNotesList() {
+        return notesList;
     }
 }
