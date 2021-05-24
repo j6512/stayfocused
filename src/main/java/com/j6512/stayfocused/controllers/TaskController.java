@@ -82,7 +82,7 @@ public class TaskController {
     @PostMapping("taskList/edit-task/{taskListId}/{taskId}")
     public String processTaskListEditTaskForm(@ModelAttribute @Valid Task newTask, Errors errors, Model model,
                                               @PathVariable int taskListId, @PathVariable int taskId,
-                                              @RequestParam String title, @RequestParam String description, @RequestParam TaskStatus status, @RequestParam String notes) {
+                                              @RequestParam String title, @RequestParam String description, @RequestParam TaskStatus status) {
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();

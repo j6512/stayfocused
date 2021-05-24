@@ -28,7 +28,7 @@
                         <td th:text="${task.title}"></td>
                         <td th:text="${task.description}"></td>
                         <td th:text="${task.getStatus.getStatus}"></td>
-                        <td th:text="${task.notes}"></td>
+                        <td><a th:href="@{'/taskList/notes/' + ${taskList.id} + '/' + ${task.id}}">Notes</a></td>
                         <td><a th:href="@{'/taskList/edit-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Edit</a></td>
                     </tr>
                     <tr th:if="${task.getStatus.getStatus == 'In Progress'}" class="table-primary">
@@ -44,7 +44,7 @@
                         <td th:text="${task.title}"></td>
                         <td th:text="${task.description}"></td>
                         <td th:text="${task.getStatus.getStatus}"></td>
-                        <td th:text="${task.notes}"></td>
+                        <td><a th:href="@{'/taskList/notes/' + ${taskList.id} + '/' + ${task.id}}">Notes</a></td>
                         <td><a th:href="@{'/taskList/edit-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Edit</a></td>
                     </tr>
                 </th:block>
