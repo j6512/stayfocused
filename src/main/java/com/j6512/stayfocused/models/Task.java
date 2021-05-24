@@ -79,7 +79,6 @@ public class Task extends AbstractEntity {
         this.status = status;
     }
 
-
     public List<Notes> getNotesList() {
         return notesList;
     }

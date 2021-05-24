@@ -5,7 +5,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
 @Entity
-public class Notes extends AbstractEntity{
+public class Notes extends AbstractEntity {
 
     @ManyToOne
     private Task notesList;

@@ -5,20 +5,24 @@
 <nav th:replace="fragments :: navigation"></nav>
 
 <h1 th:text="${title}"></h1>
-<br>
-<hr>
+<div class="btn-group">
+    <a th:href="@{'/taskList/add-notes/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger" style="margin-right:5px;">Add Notes</a></td>
+    <a th:href="'/taskList/view/' + ${taskList.id}" class="btn btn-danger">Back to List</a>
+</div>
 
+<hr>
 <div class="row">
-    <th:block th:each="note : ${notes}">
+    <th:block th:each="note : ${notesList}">
         <div class="card mb-4 box-shadow" style="width:300px;height:200px;margin:25px;background:lightyellow;opacity:0.5;">
             <div class="card-body text-monospace">
                 <p th:text="${note.name}"></p>
                 <p th:text="${note.description}"></p>
+                <div style="position:absolute;bottom:10px;right:10px;">
+                    <a class="btn btn-sm btn-outline-secondary" th:href="@{'/taskList/edit-notes/' + ${taskList.id} + '/' + ${task.id} + '/' + ${note.id}}">edit note</a>
+                </div>
             </div>
         </div>
     </th:block>
 </div>
-<!--<a href="/taskList/add-notes/" class="btn btn-danger" role="button">Add Notes</a>-->
-<a th:href="@{'/taskList/add-notes/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Add Notes</a></td>
 </body>
 </html>
