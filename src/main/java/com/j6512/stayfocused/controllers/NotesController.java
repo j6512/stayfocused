@@ -103,9 +103,7 @@ public class NotesController {
     public String processEditNotesForm(@ModelAttribute @Valid Notes newNotes, Errors errors, Model model,
                                        @PathVariable int taskListId, @PathVariable int taskId, @PathVariable int notesId,
                                        @RequestParam String name, @RequestParam String description) {
-        if (errors.hasErrors()) {
-            return "taskList/edit-notes";
-        }
+
 
         Optional<TaskList> optionalTaskList = taskListRepository.findById(taskListId);
         TaskList taskList = (TaskList) optionalTaskList.get();
@@ -115,9 +113,15 @@ public class NotesController {
         Task task = (Task) optionalTask.get();
         model.addAttribute("task", task);
 
+        if (errors.hasErrors()) {
+            return "taskList/edit-notes";
+        }
+
         Optional<Notes> optionalNotes = notesRepository.findById(notesId);
         Notes notes = (Notes) optionalNotes.get();
         model.addAttribute("notes", notes);
+
+
 
         newNotes = optionalNotes.get();
         newNotes.setName(name);
