@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
-<nav th:replace="fragments :: navigation"></nav>
+<nav th:replace="fragments :: navigationWithTimer"></nav>
 <div class="row">
     <th:block th:each="taskList : ${taskLists}">
         <div class="card mb-4 box-shadow" style="width:15%;height:350px;margin:25px;background:#F5FFFA;">

@@ -33,5 +33,40 @@
             </ul>
         </div>
     </nav>
+    <nav th:fragment="navigationWithTimer" class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="collapse navbar-collapse" style="float:right;">
+            <a class="nav-item nav-link" href="/index">home</a>
+            <a class="nav-item nav-link" href="/taskList/index">task list</a>
+            <a class="nav-item nav-link" href="/profile/index">profile</a>
+            <a class="nav-item nav-link" href="/search">search</a>
+            <a class="nav-item nav-link" href="/timer">timer</a>
+        </div>
+
+        <span class="navbar-brand" th:text="${title}" style="float:right;">stay focusssssed</span>
+        <div style="float:right;margin-right:50px;">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinks" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:50%;">
+                        <img src="https://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png" width="40" height="40" class="rounded-circle">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinks">
+                        <a class="dropdown-item" href="/profile/index">my profile</a>
+                        <a class="dropdown-item" href="/profile/edit">edit profile</a>
+                        <a class="dropdown-item" href="/logout">log out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="timer" style="margin-top:10px;">
+            <div class="display">
+                <h1 class="display-time-left" style="font-size:20px;">00:00</h1>
+            </div>
+            <form name="customInput">
+            </form>
+        </div>
+        <script th:src="@{/script.js}"></script>
+    </nav>
 </body>
 </html>
+
+
