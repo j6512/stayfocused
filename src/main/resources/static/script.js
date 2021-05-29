@@ -16,10 +16,11 @@ function timer(seconds) {
 
         if (secondsRemaining < 0) {
             clearInterval(countdown);
+            localStorage.removeItem("timeRemaining");
 
             return;
         }
-
+        localStorage.timeRemaining = secondsRemaining;
         displayTimeRemaining(secondsRemaining);
     }, 1000);
 }
@@ -58,3 +59,7 @@ document.customInput.addEventListener("submit", function(e) {
     timer(min * 60);
     this.reset();
 })
+
+if (localStorage.timeRemaining) {
+    timer(localStorage.timeRemaining);
+}
