@@ -2,14 +2,19 @@ let workCountdown;
 let breakCountdown;
 const timerDisplay = document.querySelector('.display-time-left');
 const buttons = document.querySelectorAll('[data-time]');
+document.getElementById("message").innerHTML = "enter a time and submit to start the clock";
+let i = 0;
 
 
-function timer(workSeconds, breakSeconds) {
+function timer(workSeconds, breakSeconds, repetitions) {
     clearInterval(workCountdown);
     clearInterval(breakCountdown);
 
+
     if (workSeconds == 0) {
         document.getElementById('background').style.backgroundColor = 'white';
+        document.getElementById("message").innerHTML = "timer has stopped!";
+
         displayTimeRemaining(0);
         return;
     }
@@ -18,37 +23,34 @@ function timer(workSeconds, breakSeconds) {
     const workThen = workNow + workSeconds * 1000;
     displayTimeRemaining(workSeconds);
 
-    document.getElementById('background').style.backgroundColor = 'yellow';
+    document.getElementById('background').style.backgroundColor = 'ivory';
 
     workCountdown = setInterval(() => {
-
 
         const workSecondsRemaining = Math.round((workThen - Date.now()) / 1000);
 
         if (workSecondsRemaining != 0) {
-//            localStorage.timeRemaining = workSecondsRemaining;
+            document.getElementById("message").innerHTML = "start studying now!";
             displayTimeRemaining(workSecondsRemaining);
         } else if (workSecondsRemaining == 0) {
-//            localStorage.timeRemaining = workSecondsRemaining;
             displayTimeRemaining(workSecondsRemaining);
             clearInterval(workCountdown);
-//            localStorage.removeItem("timeRemaining");
-
             // starts the break timer once the working timer reaches 0
             const breakNow = Date.now();
             const breakThen = breakNow + breakSeconds * 1000;
             breakCountdown = setInterval(() => {
-            document.getElementById('background').style.backgroundColor = 'blue';
+            document.getElementById('background').style.backgroundColor = 'lavender';
                 const breakSecondsRemaining = Math.round((breakThen - Date.now()) / 1000) + 1;
                 if (breakSecondsRemaining != 0) {
-//                    localStorage.timeRemaining = breakSecondsRemaining;
+                    document.getElementById("message").innerHTML = "take a break!";
                     displayTimeRemaining(breakSecondsRemaining);
                 } else if (breakSecondsRemaining == 0) {
-//                    localStorage.timeRemaining = breakSecondsRemaining;
                     displayTimeRemaining(breakSecondsRemaining);
                     clearInterval(breakCountdown);
-//                    localStorage.removeItem("timeRemaining");
-                    timer(workSeconds, breakSeconds);
+                    while (i < repetitions) {
+                        timer(workSeconds, breakSeconds);
+                        i++;
+                    }
                     return;
                 } else if (breakSecondsRemaining < 0) {
                     clearInterval(workCountdown);
@@ -56,7 +58,6 @@ function timer(workSeconds, breakSeconds) {
                     return;
                 }
             }, 1000);
-
         } else if (workSecondsRemaining < 0) {
             clearInterval(workCountdown);
             clearInterval(breakCountdown);
@@ -88,12 +89,9 @@ document.customInput.addEventListener("submit", function(e) {
 
     const workMinutes = this.workMinutes.value;
     const breakMinutes = this.breakMinutes.value;
+    const repetitions = this.repetitions.value;
 
-    timer(workMinutes * 60, breakMinutes * 60);
+    timer(workMinutes * 60, breakMinutes * 60, repetitions);
+
     this.reset();
 })
-
-//if (localStorage.timeRemaining) {
-//    timer(localStorage.timeRemaining);
-//}
-//
