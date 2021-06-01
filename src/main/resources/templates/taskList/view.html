@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid" id="background">
 <nav th:replace="fragments :: navigation"></nav>
 <div class="container">
     <div class="row">
@@ -62,7 +62,9 @@
                     <button data-time="900" class="btn btn-outline-success" style="width:125px;margin:2px;">15 minutes</button>
                     <button data-time="1800" class="btn btn-outline-success" style="width:125px;margin:2px;">30 minutes</button>
                     <form name="customInput" style="margin:10px;text-align:center;">
-                        <input type="text" name="minutes" placeholder="Enter minutes">
+                        <input type="text" name="workMinutes" placeholder="Enter working minutes"/>
+                        <input type="text" name="breakMinutes" placeholder="Enter break minutes"/>
+                        <input type="submit" class="btn btn-primary"/>
                     </form>
                 </div>
             </div>
