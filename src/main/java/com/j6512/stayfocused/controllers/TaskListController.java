@@ -155,11 +155,20 @@ public class TaskListController {
     public String processTaskListDeleteForm(@PathVariable int taskListId) {
 
         List<Task> tasks = (List<Task>) taskRepository.getAllTasksByTaskListId(taskListId);
-        Iterator<Task> holder = tasks.iterator();
+        Iterator<Task> taskHolder = tasks.iterator();
 
-        while(holder.hasNext()) {
-            int id = holder.next().getId();
-            taskRepository.deleteById(id);
+        while(taskHolder.hasNext()) {
+            int taskId = taskHolder.next().getId();
+
+            List<Notes> notes = (List<Notes>) notesRepository.getAllNotesByNotesListId(taskId);
+            Iterator<Notes> holder = notes.iterator();
+            while (holder.hasNext()) {
+                int notesId = holder.next().getId();
+                notesRepository.deleteById(notesId);
+            }
+
+
+            taskRepository.deleteById(taskId);
         }
 
         taskListRepository.deleteById(taskListId);
