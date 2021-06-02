@@ -8,7 +8,6 @@ var repetitionTracker;
 function timer(workSeconds, breakSeconds, repetitions) {
     clearInterval(workCountdown);
     clearInterval(breakCountdown);
-    console.log("hi");
 
     if (workSeconds == 0) {
         document.getElementById('background').style.backgroundColor = 'white';
@@ -43,15 +42,18 @@ function timer(workSeconds, breakSeconds, repetitions) {
                     document.getElementById("message").innerHTML = "take a break!";
                     displayTimeRemaining(breakSecondsRemaining);
                 } else if (breakSecondsRemaining == 0) {
-                    clearInterval(breakCountdown);
                     displayTimeRemaining(breakSecondsRemaining);
-
+                    clearInterval(breakCountdown);
                     if (repetitionTracker < repetitions) {
                         repetitionTracker++;
                         document.getElementById("currentIteration").innerHTML = repetitionTracker;
                         timer(workSeconds, breakSeconds, repetitions);
                     } else {
                         repetitionTracker = 0;
+                        document.getElementById('background').style.backgroundColor = 'honeydew';
+                        document.getElementById("message").innerHTML = "studying is now over!";
+                        document.getElementById("currentIteration").innerHTML = "0";
+                        displayTimeRemaining(0);
                     }
                     return;
                 } else if (breakSecondsRemaining < 0) {
@@ -75,7 +77,7 @@ function displayTimeRemaining(seconds) {
     timerDisplay.textContent = display;
     document.title = display;
 
-    console.log({minutes, remainderSeconds});
+//    console.log({minutes, remainderSeconds});
 }
 
 document.customInput.addEventListener("submit", function(e) {
