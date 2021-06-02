@@ -1,7 +1,7 @@
 # stayfocused
 ## overview
 
-stayfocused is a studying / productivity web app that allows Users to create lists that can be filled with tasks to do as well as a countdown timer. The countdown timer can be configured by the User in which they can set a timer for their "study sessions" as well as a timer for their "study breaks". The aim of this web app is to help Users focus on the tasks on their lists and to promote better time management. 
+stayfocused is a studying / time management web app that allows Users to create lists that can be filled with tasks to do as well as a countdown timer. The countdown timer can be configured by the User in which they can set a timer for their "study sessions" as well as a timer for their "study breaks". The aim of this web app is to help Users focus on the tasks on their lists and to promote better time management. 
 
 The idea came from personal experience where I found it difficult to concentrate on a given task without getting side tracked. I found that by breaking up studying sessions into shorter segments followed by a break at the end of each segment, my productivity increased and that I was able to stay focused on what I was currently working on. The purpose of the study breaks is for Users to have something to look forward to after giving their entire attention to the task during their study session. Users are free to do whatever they would like within that study break time frame. Once the break ends, Users can get back to working on their tasks.
 
