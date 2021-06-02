@@ -50,7 +50,7 @@
                 </th:block>
             </table>
         </div>
-        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;top:40%;padding:20px;">
+        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;top:30%;padding:20px;">
             <strong class="d-inline-block mb-2 text-primary" style="text-align:center;">Timer</strong>
             <div class="timer">
                 <div class="display" style="text-align:center;">
@@ -65,10 +65,24 @@
                         <input type="text" name="workMinutes" placeholder="Enter working minutes"/>
                         <input type="text" name="breakMinutes" placeholder="Enter break minutes"/>
                         <input type="text" name="repetitions" placeholder="Enter repeat amount"/>
-                        <input type="submit" class="btn btn-primary"/>
+                        <input type="submit" class="btn btn-primary" style="margin-top:10px;"/>
                     </form>
                     <p id="message" style="display:flex;justify-content:center;align-items:center;"></p><br>
                 </div>
+                <table class="table" style="display:flex;justify-content:center;align-items:center;">
+                    <tr>
+                        <th>study session</th>
+                        <th>study break</th>
+                        <th>repetitions</th>
+                        <th>current iteration</th>
+                    </tr>
+                    <tr>
+                        <td id="studySession"></td>
+                        <td id="studyBreak"></td>
+                        <td id="repetitions"></td>
+                        <td id="currentIteration"></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

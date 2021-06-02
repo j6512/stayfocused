@@ -24,6 +24,20 @@
             <input type="submit" class="btn btn-primary"/>
         </form>
         <p id="message" style="display:flex;justify-content:center;align-items:center;font-size:20px;"></p><br>
+        <table class="table" style="display:flex;justify-content:center;align-items:center;">
+            <tr>
+                <th>study session</th>
+                <th>study break</th>
+                <th>repetitions</th>
+                <th>current iteration</th>
+            </tr>
+            <tr>
+                <td id="studySession"></td>
+                <td id="studyBreak"></td>
+                <td id="repetitions"></td>
+                <td id="currentIteration"></td>
+            </tr>
+        </table>
     </div>
 </div>
 <script th:src="@{/script.js}"></script>
