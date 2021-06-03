@@ -20,7 +20,10 @@ public class TaskData {
             String aValue = getFieldValue(task, column);
 
             if (aValue != null && column.equals("list")) {
-                if (aValue.equals(value)) {
+//                if (aValue.equals(value)) {
+//                    results.add(task);
+//                }
+                if (aValue.contains(value)) {
                     results.add(task);
                 }
             } else if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {
