@@ -29,6 +29,12 @@ function timer(workSeconds, breakSeconds, repetitions) {
 
         if (workSecondsRemaining != 0) {
             displayTimeRemaining(workSecondsRemaining);
+        } else if (workSecondsRemaining == 0 && !breakSeconds) {
+            displayTimeRemaining(workSecondsRemaining);
+            clearInterval(workCountdown);
+            document.getElementById('background').style.backgroundColor = 'honeydew';
+            document.getElementById("message").innerHTML = "studying is now over!";
+            return;
         } else if (workSecondsRemaining == 0) {
             displayTimeRemaining(workSecondsRemaining);
             clearInterval(workCountdown);

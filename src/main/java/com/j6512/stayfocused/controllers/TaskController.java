@@ -90,6 +90,7 @@ public class TaskController {
 
         if (errors.hasErrors()) {
             model.addAttribute("taskList", taskList);
+            model.addAttribute("statuses", TaskStatus.values());
             return "taskList/edit-task";
         }
 
