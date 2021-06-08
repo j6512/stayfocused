@@ -3,9 +3,10 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-<div class="card" style="width:fit-content;display:flex;justify-content:center;margin-left:auto;margin-right:auto;margin-top:10%;">
+<div class="card" style="height:400px;width:75%;display:flex;justify-content:center;margin-left:auto;margin-right:auto;margin-top:10%;">
     <div class="card-body" style="height:200px;display:flex;justify-content:center;flex-direction:column;">
-        <div class="container">
+        <img src="https://www.freeiconspng.com/uploads/account-profile-user-icon--icon-search-engine-10.png" width="80" height="80" class="rounded-circle" style="position:absolute;top:15px;left:15px;">
+        <div class="container" style="position:absolute;top:30px;left:100px;font-size:xx-large;">
             <label>name:
                 <span th:text="${userProfile.firstName}"></span> <span th:text="${userProfile.lastName}"></span>
             </label>
