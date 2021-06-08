@@ -3,16 +3,20 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-<form method="post" action="/taskList/create">
-    <div class="form-group">
-        <label>Name
-            <input type="text" th:field="${taskList.name}" class="form-control"/>
-        </label>
-        <span th:errors="${taskList.name}" class="error text-danger"></span>
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Create List" class="btn btn-success"/>
-    </div>
-</form>
+
+<div>
+    <form method="post" action="/taskList/create" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:10%;">
+        <div class="form-group">
+            <label>Enter a Name for the List
+                <input type="text" th:field="${taskList.name}" class="form-control" style="margin-top:5%;"/>
+            </label>
+            <span th:errors="${taskList.name}" class="error text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create List" class="btn btn-success"/>
+        </div>
+    </form>
+</div>
+
 </body>
 </html>

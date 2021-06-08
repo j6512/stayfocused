@@ -3,9 +3,9 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-<form method="post">
+<form method="post" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:5%;">
     <p>Are you sure you want to delete this list?</p>
-    <p th:text="${taskList.name}"></p>
+    <p th:text="${taskList.name}" style="font-size:x-large;"></p>
     <input type="submit" value="Delete List" class="btn btn-danger"/>
 </form>
 </body>

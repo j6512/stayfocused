@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-<form method="post" id="addTaskForm">
+<form method="post" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:5%;">
     <div class="form-group">
         <label>Title
             <input type="text" class="form-control" th:field="${task.title}"/>

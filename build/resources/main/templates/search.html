@@ -5,7 +5,26 @@
 <nav th:replace="fragments :: navigation"></nav>
 <div class="container">
     <div class="row">
-        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding-bottom:140px;">
+        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;padding:20px;padding-bottom:115px;">
+            <strong class="d-inline-block mb-2 text-primary">Search</strong>
+            <form method="post">
+                <div class="form-group">
+                    <span>lists
+                        <input type="radio" name="searchType" value="list" checked/>
+                    </span>
+                    <span>tasks
+                        <input type="radio" name="searchType" value="task"/>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="searchTerm" class="form-control"/>
+                </div>
+                <input type="submit" value="Enter" style="position:absolute;bottom:10px;left:10px;"/>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding:20px;padding-bottom:140px;">
             <strong class="d-inline-block mb-2 text-primary">Results</strong>
             <table class="table table-striped">
                 <thead>
@@ -28,26 +47,9 @@
                 </tr>
             </table>
         </div>
-        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;padding:20px;">
-            <strong class="d-inline-block mb-2 text-primary">Search</strong>
-            <form method="post">
-                <h2>Search</h2>
-
-                <div class="form-group">
-                    <span>lists
-                        <input type="radio" name="searchType" value="list" checked/>
-                    </span>
-                    <span>tasks
-                        <input type="radio" name="searchType" value="task"/>
-                    </span>
-                </div>
-                <div class="form-group">
-                    <input type="text" name="searchTerm" class="form-control"/>
-                </div>
-                <input type="submit" value="Enter"/>
-            </form>
-        </div>
     </div>
+
+</div>
 </div>
 </body>
 </html>

@@ -49,6 +49,7 @@ public class TaskController {
 
 
         if (errors.hasErrors()) {
+            model.addAttribute("statuses", TaskStatus.values());
             return "taskList/add-task";
         }
 

@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <body class="container-fluid">
 <nav th:replace="fragments :: navigation"></nav>
-<form method="post">
+<form method="post" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:5%;">
     <div class="form-group">
         <label>Name
             <input type="text" th:field="${task.title}" class="form-control"/>
@@ -29,7 +29,8 @@
     <div class="form-group">
         <input type="submit" value="Edit Task" class="btn btn-success"/>
     </div>
+    <a th:href="@{'/taskList/delete-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Delete</a>
 </form>
-<a th:href="@{'/taskList/delete-task/' + ${taskList.id} + '/' + ${task.id}}" class="btn btn-danger">Delete</a>
+
 </body>
 </html>
