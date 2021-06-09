@@ -19,7 +19,7 @@ public class UserProfile extends AbstractEntity {
     @Size(max = 20, message = "Your location can not be longer than 20 characters.")
     private String location;
 
-    @Size(max = 500, message = "Your bio can not be longer than 500 characters.")
+    @Size(max = 1000, message = "Your bio can not be longer than 500 characters.")
     private String bio;
 
     @OneToOne(mappedBy = "userProfile")

@@ -20,11 +20,13 @@ public class TaskListData {
 
             String aValue = getFieldValue(taskList, column);
 
+
+
             if (aValue != null && column.equals("list")) {
 //                if (aValue.equals(value)) {
 //                    results.add(taskList);
 //                }
-                if (aValue.contains(value)) {
+                if (aValue.contains(value.toLowerCase())) {
                     results.add(taskList);
                 }
             } else if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {

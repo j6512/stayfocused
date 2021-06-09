@@ -5,7 +5,7 @@
 <nav th:replace="fragments :: navigation"></nav>
 <div class="row">
     <th:block th:each="taskList : ${taskLists}">
-        <div class="card mb-4 box-shadow" style="width:30%;height:400px;margin:25px;background:#F5FFFA;">
+        <div class="card shadow p-3 mb-5 rounded" style="width:30%;height:400px;margin:25px;background:#F5FFFA;">
             <div class="card-body text-monospace">
                 <small class="text-muted" th:text="'ID: ' + ${taskList.id}"></small>
                 <a th:text="${taskList.name}" th:href="'/taskList/view/' + ${taskList.id}" style="display:flex;justify-content:center;align-items:center;margin-top:30%;"></a>

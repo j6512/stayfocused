@@ -23,7 +23,7 @@ public class TaskData {
 //                if (aValue.equals(value)) {
 //                    results.add(task);
 //                }
-                if (aValue.contains(value)) {
+                if (aValue.contains(value.toLowerCase())) {
                     results.add(task);
                 }
             } else if (aValue != null && aValue.toLowerCase().contains(value.toLowerCase())) {

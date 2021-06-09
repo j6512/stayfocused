@@ -2,51 +2,51 @@ com/j6512/stayfocused/StayfocusedApplication.java
  com.j6512.stayfocused.StayfocusedApplication
 com/j6512/stayfocused/models/data/UserProfileRepository.java
  com.j6512.stayfocused.models.data.UserProfileRepository
-com/j6512/stayfocused/controllers/NotesController.java
- com.j6512.stayfocused.controllers.NotesController
-com/j6512/stayfocused/controllers/TaskListController.java
- com.j6512.stayfocused.controllers.TaskListController
-com/j6512/stayfocused/models/UserProfile.java
- com.j6512.stayfocused.models.UserProfile
-com/j6512/stayfocused/models/Notes.java
- com.j6512.stayfocused.models.Notes
-com/j6512/stayfocused/models/data/NotesRepository.java
- com.j6512.stayfocused.models.data.NotesRepository
-com/j6512/stayfocused/models/data/UserRepository.java
- com.j6512.stayfocused.models.data.UserRepository
-com/j6512/stayfocused/models/dto/LoginFormDTO.java
- com.j6512.stayfocused.models.dto.LoginFormDTO
-com/j6512/stayfocused/models/data/TaskData.java
- com.j6512.stayfocused.models.data.TaskData
-com/j6512/stayfocused/models/data/TaskListRepository.java
- com.j6512.stayfocused.models.data.TaskListRepository
-com/j6512/stayfocused/models/TaskList.java
- com.j6512.stayfocused.models.TaskList
-com/j6512/stayfocused/models/data/TaskListData.java
- com.j6512.stayfocused.models.data.TaskListData
-com/j6512/stayfocused/models/data/TaskRepository.java
- com.j6512.stayfocused.models.data.TaskRepository
-com/j6512/stayfocused/controllers/SearchController.java
- com.j6512.stayfocused.controllers.SearchController
-com/j6512/stayfocused/controllers/UserProfileController.java
- com.j6512.stayfocused.controllers.UserProfileController
-com/j6512/stayfocused/AuthenticationFilter.java
- com.j6512.stayfocused.AuthenticationFilter
-com/j6512/stayfocused/models/User.java
- com.j6512.stayfocused.models.User
-com/j6512/stayfocused/controllers/HomeController.java
- com.j6512.stayfocused.controllers.HomeController
-com/j6512/stayfocused/models/TaskStatus.java
- com.j6512.stayfocused.models.TaskStatus
-com/j6512/stayfocused/models/Task.java
- com.j6512.stayfocused.models.Task
 com/j6512/stayfocused/models/AbstractEntity.java
  com.j6512.stayfocused.models.AbstractEntity
 com/j6512/stayfocused/models/dto/RegisterFormDTO.java
  com.j6512.stayfocused.models.dto.RegisterFormDTO
+com/j6512/stayfocused/models/TaskStatus.java
+ com.j6512.stayfocused.models.TaskStatus
+com/j6512/stayfocused/models/data/TaskRepository.java
+ com.j6512.stayfocused.models.data.TaskRepository
+com/j6512/stayfocused/models/data/NotesRepository.java
+ com.j6512.stayfocused.models.data.NotesRepository
+com/j6512/stayfocused/models/data/TaskListRepository.java
+ com.j6512.stayfocused.models.data.TaskListRepository
+com/j6512/stayfocused/models/dto/LoginFormDTO.java
+ com.j6512.stayfocused.models.dto.LoginFormDTO
 com/j6512/stayfocused/WebApplicationConfig.java
  com.j6512.stayfocused.WebApplicationConfig
+com/j6512/stayfocused/models/User.java
+ com.j6512.stayfocused.models.User
+com/j6512/stayfocused/controllers/HomeController.java
+ com.j6512.stayfocused.controllers.HomeController
+com/j6512/stayfocused/models/Task.java
+ com.j6512.stayfocused.models.Task
+com/j6512/stayfocused/controllers/NotesController.java
+ com.j6512.stayfocused.controllers.NotesController
+com/j6512/stayfocused/controllers/UserProfileController.java
+ com.j6512.stayfocused.controllers.UserProfileController
+com/j6512/stayfocused/models/UserProfile.java
+ com.j6512.stayfocused.models.UserProfile
+com/j6512/stayfocused/AuthenticationFilter.java
+ com.j6512.stayfocused.AuthenticationFilter
+com/j6512/stayfocused/models/data/UserRepository.java
+ com.j6512.stayfocused.models.data.UserRepository
 com/j6512/stayfocused/controllers/AuthenticationController.java
  com.j6512.stayfocused.controllers.AuthenticationController
+com/j6512/stayfocused/models/TaskList.java
+ com.j6512.stayfocused.models.TaskList
 com/j6512/stayfocused/controllers/TaskController.java
  com.j6512.stayfocused.controllers.TaskController
+com/j6512/stayfocused/models/Notes.java
+ com.j6512.stayfocused.models.Notes
+com/j6512/stayfocused/models/data/TaskData.java
+ com.j6512.stayfocused.models.data.TaskData
+com/j6512/stayfocused/controllers/TaskListController.java
+ com.j6512.stayfocused.controllers.TaskListController
+com/j6512/stayfocused/controllers/SearchController.java
+ com.j6512.stayfocused.controllers.SearchController
+com/j6512/stayfocused/models/data/TaskListData.java
+ com.j6512.stayfocused.models.data.TaskListData
