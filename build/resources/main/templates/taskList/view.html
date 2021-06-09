@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid" id="background">
+<body class="container-fluid" id="background" style="background-color:#a6d4fa;">
 <nav th:replace="fragments :: navigation"></nav>
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 border border-secondary rounded shadow p-3 mb-5 rounded" style="left:-10%;padding:20px;">
+        <div class="col-lg-8 border border-secondary rounded shadow p-3 mb-5 rounded" style="margin-top:20px;left:-10%;padding:20px;background-color:#f2f9fe;">
             <strong class="d-inline-block mb-2 text-primary">List</strong>
             <br>
             <small class="text-muted" th:text="'Date Created: ' + ${taskList.formattedDate}"></small>
@@ -50,7 +50,7 @@
                 </th:block>
             </table>
         </div>
-        <div class="col-sm-4 border border-secondary rounded shadow p-3 mb-5 rounded" style="position:fixed;right:10%;top:30%;padding:20px;">
+        <div class="col-sm-4 border border-secondary rounded shadow p-3 mb-5 rounded" style="position:fixed;right:10%;top:30%;padding:20px;background-color:#f2f9fe;">
             <strong class="d-inline-block mb-2 text-primary" style="text-align:center;">Timer</strong>
             <div class="timer">
                 <div class="display" style="text-align:center;">

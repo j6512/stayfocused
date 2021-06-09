@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid" style="background-color:#a6d4fa;">
 <nav th:replace="fragments :: navigation"></nav>
 <form method="post" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:5%;">
     <div class="form-group">
         <label>Name
-            <input type="text" th:field="${notes.name}" class="form-control"/>
+            <input type="text" th:field="${notes.name}" class="form-control" style="background-color:#f2f9fe;"/>
         </label>
         <p class="error text-danger" th:errors="${notes.name}"></p>
     </div>
     <div class="form-group">
         <label>Description
         </label><br>
-        <textarea name="description" th:field="${notes.description}" rows="5" cols="40" class="rounded"></textarea>
+        <textarea name="description" th:field="${notes.description}" rows="5" cols="40" class="rounded" style="background-color:#f2f9fe;"></textarea>
         <p class="error text-danger" th:errors="${notes.description}"></p>
     </div>
     <div class="form-group">

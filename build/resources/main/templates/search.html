@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid" style="background-color:#a6d4fa;">
 <nav th:replace="fragments :: navigation"></nav>
 <div class="container">
     <div class="row">
-        <div class="col-sm-4 border border-secondary rounded" style="position:fixed;right:10%;padding:20px;padding-bottom:115px;">
+        <div class="col-sm-4 border border-secondary rounded" style="background-color:#f2f9fe;position:fixed;right:10%;padding:20px;padding-bottom:115px;margin-top:20px;">
             <strong class="d-inline-block mb-2 text-primary">Search</strong>
             <form method="post">
                 <div class="form-group">
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6 border border-secondary rounded" style="left:-10%;padding:20px;padding-bottom:140px;">
+        <div class="col-sm-6 border border-secondary rounded" style="background-color:#f2f9fe;left:-10%;padding:20px;padding-bottom:140px;margin-top:20px;">
             <strong class="d-inline-block mb-2 text-primary">Results</strong>
             <table class="table table-striped">
                 <thead>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid" style="background-color:#a6d4fa;">
 <nav th:replace="fragments :: navigation"></nav>
 
 <h1 th:text="${title}"></h1>
@@ -13,7 +13,7 @@
 <hr>
 <div class="row">
     <th:block th:each="note : ${notesList}">
-        <div class="card shadow p-3 mb-5 rounded" style="width:300px;height:200px;margin:25px;background:lightyellow;opacity:0.5;">
+        <div class="card shadow p-3 mb-5 rounded" style="width:300px;height:200px;margin:25px;background-color:#fff7b1;">
             <div class="card-body text-monospace">
                 <p th:text="${note.name}"></p>
                 <p th:text="${note.description}"></p>

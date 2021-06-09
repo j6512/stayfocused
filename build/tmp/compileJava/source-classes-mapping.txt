@@ -42,10 +42,10 @@ com/j6512/stayfocused/controllers/TaskController.java
  com.j6512.stayfocused.controllers.TaskController
 com/j6512/stayfocused/models/Notes.java
  com.j6512.stayfocused.models.Notes
-com/j6512/stayfocused/models/data/TaskData.java
- com.j6512.stayfocused.models.data.TaskData
 com/j6512/stayfocused/controllers/TaskListController.java
  com.j6512.stayfocused.controllers.TaskListController
+com/j6512/stayfocused/models/data/TaskData.java
+ com.j6512.stayfocused.models.data.TaskData
 com/j6512/stayfocused/controllers/SearchController.java
  com.j6512.stayfocused.controllers.SearchController
 com/j6512/stayfocused/models/data/TaskListData.java

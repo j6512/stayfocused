@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container-fluid">
+<body class="container-fluid" style="background-color:#a6d4fa;">
 <nav th:replace="fragments :: navigation"></nav>
 
 <div>
     <form method="post" action="/taskList/create" style="display:flex;justify-content:center;align-items:center;flex-direction:column;margin-top:10%;">
         <div class="form-group">
             <label>Enter a Name for the List
-                <input type="text" th:field="${taskList.name}" class="form-control" style="margin-top:5%;"/>
+                <input type="text" th:field="${taskList.name}" class="form-control" style="margin-top:5%;background-color:#f2f9fe;"/>
             </label>
             <span th:errors="${taskList.name}" class="error text-danger"></span>
         </div>
